@@ -52,7 +52,7 @@ class User(db.Model):
         """
         serializer = TimedJSONWebSignatureSerializer(app.config['SECRETY_KEY'])
         try:
-            # loads用于序列化，把字符串转为字典
+            # loads用于反序列化，把字符串转为字典
             token_loads_result = serializer.loads(token)
         except (BadSignature,SignatureExpired):
             return None
