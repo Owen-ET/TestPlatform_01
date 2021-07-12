@@ -1,13 +1,10 @@
 <!-- App.vue -->
 <template>
     <v-app>
-        <v-navigation-drawer app>
+        <v-navigation-drawer app clipped>
             <!-- -->
         </v-navigation-drawer>
 
-        <v-app-bar app>
-            <!-- -->
-        </v-app-bar>
 
         <!-- 根据应用组件来调整你的内容 -->
         <v-main>

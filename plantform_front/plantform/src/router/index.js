@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import SignUp from '../components/SignUp.vue'
+import Main from '../components/Main.vue'
 
 Vue.use(VueRouter)
 
