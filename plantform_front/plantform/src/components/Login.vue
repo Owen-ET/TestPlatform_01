@@ -1,11 +1,13 @@
 <template>
-  <div class="loginStyle">
-    <h1>登录</h1>
-    <v-text-field v-model="username" label="用户名" outlined clearable></v-text-field>
-    <v-text-field v-model="password" label="密码" outlined clearable type="password"></v-text-field>
-    <v-btn depressed color="primary" @click="login()">登录</v-btn>&#12288;&#12288;
-    <v-btn depressed @click="goSignUp()">注册</v-btn>
-  </div>
+  <v-main>
+    <div class="loginStyle">
+      <h1>登录</h1>
+      <v-text-field v-model="username" label="用户名" outlined clearable></v-text-field>
+      <v-text-field v-model="password" label="密码" outlined clearable type="password"></v-text-field>
+      <v-btn depressed color="primary" @click="login()">登录</v-btn>&#12288;&#12288;
+      <v-btn depressed @click="goSignUp()">注册</v-btn>
+    </div>
+  </v-main>
 </template>
 
 
@@ -28,7 +30,10 @@ export default {
       };
       this.$api.user.login(loginData).then(res=>{
         // localStorage存储到浏览器中的数据
-        localStorage.setItem('token', res.data.access_token)
+        if (res.status == 200){
+          localStorage.setItem('token', res.data.access_token)
+          this.$router.push({"name": "TestCase"})
+        }
         console.log(res);
       });
 

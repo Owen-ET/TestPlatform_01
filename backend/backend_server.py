@@ -13,9 +13,9 @@ from sqlalchemy import or_
 app = Flask(__name__)
 # 配置数据库的详细信息
 # 单位数据库
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567@192.168.10.113:8881/ZC_17'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567@192.168.10.113:8881/ZC_17'
 # 家里数据库
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@127.0.0.1:3306/ZC_17'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@127.0.0.1:3306/ZC_17'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # 配置数据库的详细信息
 app.config['SECRETY_KEY'] = "ZC17"

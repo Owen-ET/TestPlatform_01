@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import SignUp from '../components/SignUp.vue'
 import Main from '../components/Main.vue'
+import TestReport from '../components/TestReport.vue'
+import TestCase from '../components/TestCase.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +22,19 @@ const routes = [
   {
     path: '/main',
     name: 'Main',
-    component: Main
+    component: Main,
+    children:[
+      {
+        path: '/report',
+        name: 'TestReport',
+        component: TestReport
+      },
+      {
+        path: '/case',
+        name: 'TestCase',
+        component: TestCase
+      },
+    ]
   }
   // {
   //   path: '/about',

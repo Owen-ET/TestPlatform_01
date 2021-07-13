@@ -3,6 +3,7 @@
     <v-app>
         <v-navigation-drawer app clipped>
             <!-- -->
+            <MainLeftLists />
         </v-navigation-drawer>
 
 
@@ -24,10 +25,11 @@
 </template>
 
 <script>
+import MainLeftLists from "./MainLeftLists.vue"
 export default {
-    setup() {
-        
-    },
+    components:{
+        MainLeftLists,
+    }
 }
 </script>
 
