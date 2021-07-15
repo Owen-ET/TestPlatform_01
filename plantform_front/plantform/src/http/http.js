@@ -18,7 +18,16 @@ instance.interceptors.request.use(function(config){
   return config;
 });
 
-
+instance.interceptors.response.use(
+  (res) => {
+  return res
+  },
+  (error) => {
+    console.log("ZC")
+    console.log(error)
+    
+  }
+)
 
 // 导入实例
 export default instance;
