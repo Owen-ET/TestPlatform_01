@@ -22,4 +22,4 @@ class TestCase(db.Model):
 
 
     def as_dict(self):
-        return {'id':self.id,'nodeId':self.nodeId,'description':self.description}
+        return {'id':self.id,'nodeid':self.nodeId,'description':self.description}

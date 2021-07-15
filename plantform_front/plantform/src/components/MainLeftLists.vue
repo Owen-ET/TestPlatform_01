@@ -1,9 +1,9 @@
 <template>
-  <v-card
+  <!-- <v-card
     class="mx-auto"
-    max-width="300"
+    max-width="10000"
     tile
-  >
+  > -->
     <v-list rounded>
       <v-subheader>REPORTS</v-subheader>
       <v-list-item-group
@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-  </v-card>
+  <!-- </v-card> -->
 </template>
 
 
