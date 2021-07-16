@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../router/index.js'
 // 创建实例
 const instance = axios.create({
   // 基础URL
@@ -19,12 +20,20 @@ instance.interceptors.request.use(function(config){
 });
 
 instance.interceptors.response.use(
-  (res) => {
-  return res
+  (response) => {
+  return response
   },
   (error) => {
-    console.log("ZC")
-    console.log(error)
+    // console.log("ZC")
+    // console.log(error)
+    if(error.response){
+      if(error.response.status == 401){
+        console.log('hello')
+        localStorage.removeItem('token')
+        router.replace({name:'Login'})
+        return Promise.reject(error)
+      }
+    }
     
   }
 )
