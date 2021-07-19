@@ -55,10 +55,12 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
-    if (!auth.loggedIn()) {
+    // 判断本地是否有token
+    if (!localStorage.getItem("token")) {
       next({
-        path: '/login',
-        query: { redirect: to.fullPath }
+        // path: '/login',
+        // query: { redirect: to.fullPath }
+        "name" : "Login"
       })
     } else {
       next()
