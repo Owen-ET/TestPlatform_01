@@ -22,7 +22,18 @@ export default {
       this.$router.push({name: 'Login'})
     },
     signUp(){
-      console.log(this.username,this.password,this.email)
+      let data = {
+        "username": this.username,
+        "password": this.password,
+        "email": this.email
+      }
+      // console.log(this.username,this.password,this.email)
+      this.$api.user.signUp(data).then(response =>{
+        console.log(response)
+        if(response.data.errcode == 200){
+          this.$router.push({"name": "TestCase"}).catch(()=>{})
+        }
+      })
     }
   }
 };
