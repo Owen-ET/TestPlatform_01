@@ -118,7 +118,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm(editedItem.nodeid)">OK</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
@@ -242,7 +242,10 @@
         this.dialogDelete = true
       },
 
-      deleteItemConfirm () {
+      // 删除确认函数
+      deleteItemConfirm (nodeid) {
+        let data = {"nodeid": nodeid}
+        console.log(data)
         this.desserts.splice(this.editedIndex, 1)
         this.closeDelete()
       },
