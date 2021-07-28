@@ -48,7 +48,7 @@ class TestCaserDelete(Resource):
 
         if "nodeid" in request.args:
             nodeId = request.args.get("nodeid")
-            data = TestCase.query.filter_by(nodeId=nodeId).first()
+            data = TestCase.query.filter_by(nodeid=nodeId).first()
             if data != None:
                 db.session.delete(data)
                 db.session.commit()
@@ -59,7 +59,7 @@ class TestCaserDelete(Resource):
         elif "nodeids" in request.args:
             nodeIds = request.args.get("nodeids")
             for nodeId in nodeIds.split(","):
-                data = TestCase.query.filter_by(nodeId=nodeId).first()
+                data = TestCase.query.filter_by(nodeid=nodeId).first()
                 if data != None:
                     db.session.delete(data)
                 else:
@@ -79,7 +79,7 @@ class TestCaserUpdate(Resource):
         :return:
         """
         request_body = request.json
-        data = TestCase.query.filter_by(nodeId=request_body.get("nodeid")).first()
+        data = TestCase.query.filter_by(nodeid=request_body.get("nodeid")).first()
         data.description = request_body.get("description")
         db.session.commit()
         return {'msg':'update is success'}

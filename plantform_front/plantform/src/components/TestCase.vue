@@ -270,6 +270,7 @@
       save () {
         if (this.editedIndex > -1) {
           console.log("这里是编辑")
+          this.$api.testcase.updateTestCase(this.editedItem)
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
         } else {
           console.log("这里是新增")

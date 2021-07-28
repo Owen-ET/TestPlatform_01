@@ -9,6 +9,9 @@ const testcase = {
     },
     addTestCase(data){
         return axios.post("/testcase/add",data)
+    },
+    updateTestCase(data){
+        return axios.post("/testcase/update",data)
     }
 }
 
