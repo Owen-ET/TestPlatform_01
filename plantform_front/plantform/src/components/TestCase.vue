@@ -246,6 +246,7 @@
       deleteItemConfirm (nodeid) {
         let data = {"nodeid": nodeid}
         console.log(data)
+        this.$api.testcase.deleteTestCase(data)
         this.desserts.splice(this.editedIndex, 1)
         this.closeDelete()
       },
@@ -268,8 +269,10 @@
 
       save () {
         if (this.editedIndex > -1) {
+          // console.log("这里是编辑")
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
         } else {
+          // console.log("这里是新增")
           this.desserts.push(this.editedItem)
         }
         this.close()

@@ -46,18 +46,18 @@ class TestCaserDelete(Resource):
         # return {'hello':'get'}
 
 
-        if "nodeId" in request.args:
-            nodeId = request.args.get("nodeId")
+        if "nodeid" in request.args:
+            nodeId = request.args.get("nodeid")
             data = TestCase.query.filter_by(nodeId=nodeId).first()
             if data != None:
                 db.session.delete(data)
                 db.session.commit()
-                return {'msg':'del is success!'}
+                return {'msg':'del one is success!'}
             else:
                 return {'msg':'nodeId is null'}
 
-        elif "nodeIds" in request.args:
-            nodeIds = request.args.get("nodeIds")
+        elif "nodeids" in request.args:
+            nodeIds = request.args.get("nodeids")
             for nodeId in nodeIds.split(","):
                 data = TestCase.query.filter_by(nodeId=nodeId).first()
                 if data != None:
@@ -65,7 +65,7 @@ class TestCaserDelete(Resource):
                 else:
                     return {'msg':'nodeId is null'}
             db.session.commit()
-            return {'msg': 'del is success!'}
+            return {'msg': 'del many is success!'}
 
 
 
