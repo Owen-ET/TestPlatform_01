@@ -118,7 +118,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm(editedItem.nodeid)">OK</v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
@@ -243,8 +243,8 @@
       },
 
       // 删除确认函数
-      deleteItemConfirm (nodeid) {
-        let data = {"nodeid": nodeid}
+      deleteItemConfirm () {
+        let data = {nodeid: this.editedItem.nodeid}
         console.log(data)
         this.$api.testcase.deleteTestCase(data)
         this.desserts.splice(this.editedIndex, 1)
@@ -269,10 +269,11 @@
 
       save () {
         if (this.editedIndex > -1) {
-          // console.log("这里是编辑")
+          console.log("这里是编辑")
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
         } else {
-          // console.log("这里是新增")
+          console.log("这里是新增")
+          this.$api.testcase.addTestCase(this.editedItem)
           this.desserts.push(this.editedItem)
         }
         this.close()

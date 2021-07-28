@@ -13,13 +13,14 @@ class TestCase(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    nodeId = db.Column(db.String(80), unique=True, nullable=False)
+    # nodeid必须是小写，因为VUE的字段都是小写，否则报错
+    nodeid = db.Column(db.String(80), unique=True, nullable=False)
     # 描述字段
     description = db.Column(db.String(120), unique=True, nullable=False)
 
     def __repr__(self):
-        return f'< {self.id} {self.nodeId} {self.description}>'
+        return f'< {self.id} {self.nodeid} {self.description}>'
 
 
     def as_dict(self):
-        return {'id':self.id,'nodeid':self.nodeId,'description':self.description}
+        return {'id':self.id,'nodeid':self.nodeid,'description':self.description}

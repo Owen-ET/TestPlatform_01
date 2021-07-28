@@ -7,9 +7,9 @@ const testcase = {
     deleteTestCase(nodeid){
         return axios.get("/testcase/delete",{params: nodeid})
     },
-    // addTestCase(){
-    //     return axios.post("/testcase/add")
-    // }
+    addTestCase(data){
+        return axios.post("/testcase/add",data)
+    }
 }
 
 export default testcase;

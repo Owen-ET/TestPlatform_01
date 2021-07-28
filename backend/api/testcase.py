@@ -79,7 +79,7 @@ class TestCaserUpdate(Resource):
         :return:
         """
         request_body = request.json
-        data = TestCase.query.filter_by(nodeId=request_body.get("nodeId")).first()
+        data = TestCase.query.filter_by(nodeId=request_body.get("nodeid")).first()
         data.description = request_body.get("description")
         db.session.commit()
         return {'msg':'update is success'}
