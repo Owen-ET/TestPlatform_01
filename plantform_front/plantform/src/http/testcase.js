@@ -12,6 +12,9 @@ const testcase = {
     },
     updateTestCase(data){
         return axios.post("/testcase/update",data)
+    },
+    runTestCase(){
+        return axios.get('/testcase/run')
     }
 }
 

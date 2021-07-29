@@ -4,7 +4,7 @@
 # @Author  : zc
 # @File    : testcase.py
 
-
+import jenkins
 # 测试用例新增接口
 from flask import request
 from flask_restful import Resource
@@ -94,3 +94,13 @@ class TestCaserGet(Resource):
         testcase = TestCase.query.all()
         format_testcase = [i.as_dict() for i in testcase]
         return {"msg":"ok","data": format_testcase}
+
+
+class TestCaseRun(Resource):
+    method_decorators = [auth.login_required]
+
+    def get(self):
+        server = jenkins.Jenkins('http://192.168.10.113:8888/', username="owen",
+                                 password="116b295641387ee9249db7eb17797a33af")
+        server.build_job("cekai17")
+        return {"msg": "OK", "errcode": 200}

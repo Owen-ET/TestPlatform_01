@@ -16,6 +16,16 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
+        <v-btn
+              color="green"
+              dark
+              class="mb-2"
+              v-bind="attrs"
+              v-on="on"
+              @click="runItem()"
+            >
+              Run Item
+            </v-btn>&#12288;&#12288;
         <v-dialog
           v-model="dialog"
           max-width="500px"
@@ -279,6 +289,9 @@
         }
         this.close()
       },
+      runItem(){
+        this.$api.testcase.runTestCase()
+      }
     },
   }
 </script>

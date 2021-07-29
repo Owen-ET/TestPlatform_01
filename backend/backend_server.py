@@ -130,6 +130,7 @@ def router():
     from backend.api.testcase import TestCaserUpdate
     from backend.api.login import Login
     from backend.api.signup import SignUp
+    from backend.api.testcase import TestCaseRun
     # 新增路由
     api.add_resource(TestCaserAdd, '/testcase/add')
     # 删除路由
@@ -142,6 +143,8 @@ def router():
     api.add_resource(Login, '/login')
     # 注册接口
     api.add_resource(SignUp, '/signup')
+    # 运行用例接口
+    api.add_resource(TestCaseRun, '/testcase/run')
 
 if __name__ == '__main__':
 
